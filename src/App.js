@@ -1,25 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import GlobalStyle from "./Styles/GlobalSTyle";
+import NavBar from "./NavBar";
+import Banner from "./Banner";
+import Menu from "./Menu";
+import Dialog from "./Dialog";
 
 function App() {
+  const [openItem, setOpenItem] = useState();
+  console.log(openItem);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      <NavBar />
+      <Banner />
+      <Menu setOpenItem={setOpenItem} />
+      <Dialog openItem={openItem} setOpenItem={setOpenItem} />
+    </>
   );
 }
 
