@@ -13,7 +13,7 @@ const NavbarStyled = styled.div`
 `;
 const Logo = styled(Title)`
   font-size: 40px;
-  color: #614949;
+  color: white;
   text-shadow: 1px 1px 4px black;
 `;
 

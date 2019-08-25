@@ -3,6 +3,7 @@ import GlobalStyle from "./Styles/GlobalSTyle";
 import NavBar from "./NavBar";
 import Banner from "./Banner";
 import Menu from "./Menu";
+import Order from "./Order";
 import Dialog from "./Dialog";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <NavBar />
       <Banner />
       <Menu setOpenItem={setOpenItem} />
+      <Order />
       <Dialog openItem={openItem} setOpenItem={setOpenItem} />
     </>
   );
