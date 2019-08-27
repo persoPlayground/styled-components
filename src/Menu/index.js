@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Data from "../Data";
 import { StyledGrid, Items, Label } from "./StyledGrid";
 
+import { priceFormat } from "../helpers";
 const MenuStyled = styled.div`
   height: 1000px;
   margin: 0px 400px 50px 20px;
@@ -16,13 +17,16 @@ const Menu = ({ setOpenItem }) => {
         <React.Fragment key={sectionName}>
           <h1>{sectionName}</h1>
           <StyledGrid>
-            {items.map(({ name, img }) => (
+            {items.map(({ name, img, price }) => (
               <Items
                 key={name}
                 img={img}
-                onClick={() => setOpenItem({ name, img })}
+                onClick={() => setOpenItem({ name, img, price })}
               >
-                <Label>{name}</Label>
+                <Label>
+                  <div>{name}</div>
+                  <div>{priceFormat(price)}</div>
+                </Label>
               </Items>
             ))}
           </StyledGrid>

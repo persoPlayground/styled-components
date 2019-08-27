@@ -11,42 +11,50 @@ const Data = [
   {
     name: "almond",
     img: almond,
-    section: "Dessert"
+    section: "Dessert",
+    price: 2.4
   },
   {
     name: "berryCake",
     img: berryCake,
-    section: "Cake"
+    section: "Cake",
+    price: 3.2
   },
   {
     name: "birthdayCake",
     img: birthdayCake,
-    section: "Cake"
+    section: "Cake",
+    price: 1.5
   },
   {
     name: "brownie",
     img: brownie,
-    section: "Dessert"
+    section: "Dessert",
+    price: 3
   },
   {
     name: "cake1",
     img: cake1,
-    section: "Cake"
+    section: "Cake",
+    price: 5
   },
   {
     name: "coffe",
     img: coffe,
-    section: "Cake"
+    section: "Cake",
+    price: 2.5
   },
   {
     name: "confectionCookie",
     img: confectionCookie,
-    section: "Cookie"
+    section: "Cookie",
+    price: 3.5
   },
   {
     name: "delicious",
     img: delicious,
-    section: "Cookie"
+    section: "Cookie",
+    price: 3
   }
 ];
 

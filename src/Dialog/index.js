@@ -1,6 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { Label } from "../Menu/StyledGrid";
+import Quantity from "./Quantity";
+
+import useQuantity from "../Hooks/useQuantity";
+import { priceFormat } from "../helpers";
+
 const Dialog = styled.div`
   width: 500px;
   max-height: calc(100% - 100px);
@@ -27,11 +32,11 @@ const BannerName = styled(Label)`
   padding: 5px 30px;
 `;
 
-const DialogContent = styled.div`
+export const DialogContent = styled.div`
   overflow: auto;
   min-height: 200px;
 `;
-const DialogFooter = styled.div`
+export const DialogFooter = styled.div`
   box-shadow: 0px 2px 20px 0px grey;
   height: 60px;
   display: flex;
@@ -39,7 +44,7 @@ const DialogFooter = styled.div`
   justify-content: center;
 `;
 
-const ButtonConfirm = styled.div`
+export const ButtonConfirm = styled.div`
   margin: 10px;
   background-color: #689f38;
   color: white;
@@ -61,17 +66,32 @@ const DialogShadow = styled.div`
   top: 0px;
   z-index: 10;
 `;
-export default ({ openItem: { name, img } = {}, setOpenItem }) => {
+export default ({
+  openItem: { name, img, price } = {},
+  setOpenItem,
+  order,
+  setOrder
+}) => {
   const close = () => setOpenItem();
+  const handleOrder = () => {
+    setOrder([...order, { name, price }]);
+    close();
+  };
+  const quantity = useQuantity();
+
   return name ? (
     <>
       <Dialog>
         <DialogBanner img={img}>
           <BannerName>{name}</BannerName>
         </DialogBanner>
-        <DialogContent />
+        <DialogContent>
+          <Quantity {...quantity} />
+        </DialogContent>
         <DialogFooter>
-          <ButtonConfirm>Confirm</ButtonConfirm>
+          <ButtonConfirm onClick={handleOrder}>
+            Add - {priceFormat(price)}
+          </ButtonConfirm>
         </DialogFooter>
       </Dialog>
       ;
